@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="<?php echo APP_CHARSET ?>" />
+        <title>Shell</title>
+        <?php Tag::css( 'reset' ) ?>
+        <?php Tag::css( 'shell' ) ?>
+        <?php Tag::css( 'classes' ) ?>
+        <?php Tag::css( 'bootstrap.min' ) ?>
+        <?php echo Html::includeCss() ?>
+        <?php echo Tag::js( 'jquery/jquery' ); ?>
+        <?php echo Tag::js( 'bootstrap.min' ); ?>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <?php View::partial( 'flash' ); ?>
+            <?php View::partial( 'pages/menuh', false, get_object_vars( $controller ) ); ?>
+            <div id="content" class="row">
+                <div class="span4">
+                    <?php View::partial( 'pages/menuv', false, get_object_vars( $controller ) ); ?>
+                </div>
+                <div class="span8">
+                    <?php View::content(); ?>
+                </div>
+            </div>
+            <?php echo Tag::js( 'public' ); ?>
+        </div>
+    </body>
+</html>

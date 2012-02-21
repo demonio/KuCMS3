@@ -1,0 +1,42 @@
+
+<ul>
+	<?php
+	foreach ( Load::model( 'templates' )->noDeleted() as $template )
+	{
+		?>
+		<li>
+			<?php echo $template->template; ?>
+			<ul>
+				<?php
+				foreach ( Load::model( 'areas' )->byFk( 'templates_id', $template->id ) as $area )
+				{
+					?>
+					<li>
+						<?php echo $area->area; ?>
+						<ul>
+							<?php
+							foreach ( Load::model( 'pages' )->byFk( 'areas_id', $area->id, 'level1,level2,level3' ) as $page )
+							{
+								if ( ! $page->link ) $page->link = $page->slug;
+								?>
+								<li>
+									<?php echo "$page->level1.$page->level2.$page->level3"; ?>
+									<a href="/pages/index/<?php echo $page->id; ?>"><?php echo $page->link; ?></a>
+									<a href="/<?php echo $page->slug; ?>" title="view <?php echo $page->slug; ?>?" target="_blank"><?php echo _img::eicon( 7, 10, 'view' ); ?></a>
+									<a href="/pages/delete/<?php echo $page->id; ?>" onclick="if ( ! confirm( 'Sure?' ) ) return false" title="delete <?php echo $page->slug; ?>?"><?php echo _img::eicon( 1, 11, 'delete' ); ?></a>
+
+								</li>
+								<?php
+							}
+							?>
+						</ul>
+					</li>
+					<?php
+				}
+				?>
+			</ul>
+		</li>
+		<?php
+	}
+	?>
+</ul>

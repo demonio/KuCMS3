@@ -1,0 +1,26 @@
+
+@font-face
+{
+	font-family: 'Calibri';
+	src: url('/fonts/calibri/calibri-webfont.eot'); /* IE9 Compat Modes */
+	src: url('/fonts/calibri/calibri-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('/fonts/calibri/calibri-webfont.woff') format('woff'), /* Modern Browsers */
+	     url('/fonts/calibri/calibri-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('/fonts/calibri/calibri-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	
+/* FLASH */
+.flash
+{
+	font:small-caps 16px 'Lucida Grande';
+	background-position:10px center;
+	background-repeat:no-repeat;
+	border:1px dashed #333;
+	height:20px;
+	margin:5px auto;
+	padding:0 50px;
+}
+.flash.error { color:#D8000C; background-color:#FFBABA; background-image:url( '/img/default/error.png' ); }
+.flash.info { color:#00529B; background-color:#BDE5F8; background-image:url( '/img/default/info.png' ); }
+.flash.valid { color:#4F8A10; background-color:#DFF2BF; background-image:url( '/img/default/valid.png' ); }
+.flash.warning { color:#9F6000; background-color:#FEEFB3; background-image:url( '/img/default/warning.png' ); }

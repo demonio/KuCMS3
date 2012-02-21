@@ -1,0 +1,17 @@
+<?php
+
+# VERIFICO
+if ( ! empty( $_SESSION['flash'] ) )
+{
+	# IMPRIMO
+	if ( is_array( $_SESSION['flash'] ) and count( $_SESSION['flash'] ) > 0 )
+	{
+		foreach ( $_SESSION['flash'] as $flash ) echo $flash;
+	}
+	else if ( is_string( $_SESSION['flash'] ) )
+	{
+		echo $_SESSION['flash'];
+	}
+	# DESTRUYO
+	unset( $_SESSION['flash'] );
+}

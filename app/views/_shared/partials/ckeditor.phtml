@@ -1,0 +1,53 @@
+
+<?php
+# CKEDITOR, EDITOR WYSIWYG. DESCARGA: http://ckeditor.com/download
+echo Tag::js( 'ckeditor/ckeditor' );
+# CKFINDER, EXPLORADOR DE ARCHIVOS. DESCARGA: http://ckfinder.com/download
+echo Tag::js( 'ckfinder/ckfinder' );
+?>
+
+<script>
+// RUTA DEL CKFINDER. FEATURES: http://docs.cksource.com/ckfinder_2.x_api/
+CKFinder.setupCKEditor( CKEDITOR, '/javascript/ckfinder/' );
+
+// CLASES PARA VERLAS REFLEJADAS EN EL CKEDITOR
+//CKEDITOR.config.contentsCss = [ '/css/web.css' ];
+
+// CLASES PARA ELEGIR EN EL CKEDITOR QUE ESTEN EN LOS ARCIVOS QUE PUSISTE EN CKEDITOR.config.contentsCss
+CKEDITOR.config.stylesSet =
+[
+	// CADA LINEA DE ESTAS ES UNA CLASE TUYA PERSONALIZADA DE TU STYLE O ARCHIVO CSS
+	{ name : 'horizontal line', element : 'hr', attributes : { 'class' : 'line' } },
+	{ name : 'content title', element : 'h2', attributes : { 'class' : 'title' } },
+	{ name : 'lateral title', element : 'span', attributes : { 'class' : 'title' } }
+];
+
+// PARA CONFIGURAR LA ALTURA DEL TEXTAREA. MAS FEATURES: http://docs.cksource.com/ckeditor_api/
+CKEDITOR.config.height = 250;
+// PARA PEGAR SIEMPRE CONTENIDO EN FORMATO PLANO
+CKEDITOR.config.forcePasteAsPlainText = true;
+
+// POR DEFECTO AL PULSAR ENTER SE CREA UN NUEVO PARRAFO. CON ESTO CREAMOS UN SALTO DE LINEA.
+//CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
+</script>
+
+<!--
+RECUERDA CAMBIAR LOS SIGUIENTES 4 PUNTOS EN /javascript/ckfinder/config.php
+
+1) POR DEFECTO ESTA EN FALSE Y NO VERAS LOS ARCHIVOS DEL SERVIDOR
+function CheckAuthentication()
+{
+	return true;
+}
+
+2) AQUI EL PUBLIC DE TU APP
+$baseUrl = '/';
+
+3) CAMBIA images POR img
+'url' => $baseUrl . 'img',
+'directory' => $baseDir . 'img',
+
+4) CAMBIA flash POR swf
+'url' => $baseUrl . 'swf',
+'directory' => $baseDir . 'swf',
+-->

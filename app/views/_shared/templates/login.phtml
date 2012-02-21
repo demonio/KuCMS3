@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="<?php echo APP_CHARSET ?>" />
+        <title>Login</title>
+        <?php Tag::css( 'reset' ) ?>
+        <?php Tag::css( 'classes' ) ?>
+        <?php Tag::css( 'login' ) ?>
+        <?php echo Html::includeCss() ?>
+        <?php echo Tag::js( 'jquery/jquery.min' ); ?>
+    </head>
+    <body>
+        <?php View::partial( 'flash' ); ?>
+        <form action="/<?php echo $controller_name; ?>/login" class="box login" method="post">
+            <fieldset class="boxBody">
+                <label>Username</label>
+                <input name="user" type="text" tabindex="1" placeholder="GEN6 member" required />
+                <label>Password</label>
+                <input name="pass" type="password" tabindex="2" required />
+            </fieldset>
+            <footer>
+                <input type="submit" class="btnLogin" value="Login" tabindex="4" />
+            </footer>
+        </form>
+        <?php echo Tag::js( 'public' ); ?>
+    </body>
+</html>

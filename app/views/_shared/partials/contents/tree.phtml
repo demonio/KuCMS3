@@ -1,0 +1,55 @@
+
+<ul>
+	<?php
+	$links = Load::model( 'pages' )->find( 'columns: slug,link,level1', "conditions: areas_id=$areas_id AND level1>0 AND level2=0 AND level3=0 AND deleted=0", "order: level1" );
+	foreach( $links as $link )
+	{
+		if ( ! $link->link ) $link->link = $link->slug;
+		?>
+		<li class="main">
+			<a href="<?php echo "/$link->slug"; ?>"><?php echo $link->link; ?></a>
+			<?php
+			$_links = Load::model( 'pages' )->find( 'columns: slug,link,level2', "conditions: areas_id=$areas_id AND level1=$link->level1 AND level2>0 AND level3=0 AND deleted=0", "order: level2" );
+			if ( $_links )
+			{
+				?>
+				<ul>
+					<?php
+					foreach( $_links as $_link )
+					{
+						if ( ! $_link->link ) $_link->link = $_link->slug;
+						?>
+						<li class="sub">
+							<a href="<?php echo "/$_link->slug"; ?>"><?php echo $_link->link; ?></a>
+							<?php
+							$__links = Load::model( 'pages' )->find( 'columns: slug,link', "conditions: areas_id=$areas_id AND level1=$link->level1 AND level2=$_link->level2 AND level3>0 AND deleted=0", "order: level3" );
+							if ( $__links )
+							{
+								?>
+								<ul>
+									<?php
+									foreach( $__links as $__link )
+									{
+										if ( ! $__link->link ) $__link->link = $__link->slug;
+										?>
+										<li class="sub"><a href="<?php echo "/$__link->slug"; ?>"><?php echo $__link->link; ?></a></li>
+										<?php
+									}
+									?>
+								</ul>
+								<?php
+							}
+							?>
+						</li>
+						<?php
+					}
+					?>
+				</ul>
+				<?php
+			}
+			?>
+		</li>
+		<?php
+	}
+	?>
+</ul>
