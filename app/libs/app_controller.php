@@ -15,13 +15,6 @@ class AppController extends Controller {
 
 	protected function initialize()
 	{
-		$this->url = $_SERVER['REQUEST_URI'];
-
-		if ( $this->url == '/' )
-		{
-			include 'index.html';
-			exit;
-		}
 	}
 
 	final protected function finalize()
