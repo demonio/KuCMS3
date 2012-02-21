@@ -2,7 +2,7 @@
 
 class TablesController extends DbadminController 
 {
-	public function initialize()
+	public function before_filter()
 	{
 		$this->model = empty( $_SESSION['model'] ) ? 'users' : $_SESSION['model'];
 		View::template( 'shell' );
