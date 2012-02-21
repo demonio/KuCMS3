@@ -2,7 +2,7 @@
 
 class Users extends ActiveRecord
 {
-	private $salt = ' from consulintel';
+	private $salt = ' your salt';
 
 	protected function enter( $user, $pass )
 	{		
