@@ -16,10 +16,10 @@ class ContentsController extends AppController
 		
 		if ( $role->role == 'member' AND ! empty( $_SESSION['role'] ) ) View::select( '', 'login' );
 		
-		$area = Load::model( 'areas' )->find_first( $page->areas_id );
-		$template = Load::model( 'templates' )->find_first( $area->templates_id );
+		$hook = Load::model( 'hooks' )->find_first( $page->hooks_id );
+		$template = Load::model( 'templates' )->find_first( $hook->templates_id );
 		
-		$this->areas_id = ( $template->template == 'private' ) ? 2 : 1;  
+		$this->hooks_id = ( $template->template == 'private' ) ? 2 : 1;  
 			
 		View::template( $template->template );
 	}

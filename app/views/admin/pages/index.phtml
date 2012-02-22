@@ -5,10 +5,10 @@ $slug_selected = empty( $_POST['slug'] ) ? empty( $page->slug ) ? '' : $page->sl
 $title_selected = empty( $_POST['title'] ) ? empty( $page->title ) ? '' : $page->title : $_POST['title'];
 $subtitle_selected = empty( $_POST['subtitle'] ) ? empty( $page->subtitle ) ? '' : $page->subtitle : $_POST['subtitle'];
 $content_selected = empty( $_POST['content'] ) ? empty( $page->content ) ? '' : $page->content : $_POST['content'];
-$area_selected = empty( $_POST['areas_id'] ) ? empty( $page->areas_id ) ? '' : $page->areas_id : $_POST['areas_id'];
+$hook_selected = empty( $_POST['hooks_id'] ) ? empty( $page->hooks_id ) ? '' : $page->hooks_id : $_POST['hooks_id'];
 $role_selected = empty( $_POST['roles_id'] ) ? empty( $page->roles_id ) ? '' : $page->roles_id : $_POST['roles_id'];
 ?>
-<form action="/pages/create" method="post">
+<form action="pages/create" method="post">
 	<p class="span1">
 		<label>Weight:</label>
 		<input name="weight" value="<?php echo $weight_selected; ?>" />
@@ -34,13 +34,13 @@ $role_selected = empty( $_POST['roles_id'] ) ? empty( $page->roles_id ) ? '' : $
 		<textarea class="ckeditor" name="content"><?php echo $content_selected; ?></textarea>
 	</p>
 	<p class="span3">
-		<label>Area:</label>
-		<select name="areas_id">
+		<label>hook:</label>
+		<select name="hooks_id">
 			<?php
-			foreach ( $areas as $area )
+			foreach ( $hooks as $hook )
 			{
 				?>
-				<option<?php _::esel( $area->id, $area_selected ); ?> value="<?php echo $area->id; ?>"><?php echo $area->area; ?></option>
+				<option<?php _::esel( $hook->id, $hook_selected ); ?> value="<?php echo $hook->id; ?>"><?php echo $hook->hook; ?></option>
 				<?php
 			}
 			?>

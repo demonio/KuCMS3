@@ -10,7 +10,7 @@ class PagesController extends AdminController
 		{
 			$this->page = Load::model( 'pages' )->noDeleted( $page );
 		}
-		$this->areas = Load::model( 'areas' )->noDeleted();
+		$this->hooks = Load::model( 'hooks' )->noDeleted();
 		$this->roles = Load::model( 'roles' )->noDeleted();
 	}
 	

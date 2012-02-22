@@ -50,7 +50,7 @@ class _img
         
         if ( $class ) $class=" class=\"$class\"";
         
-        echo "<span$class style=\"display:inline-block; width:$w; height:$h; background:url( '/img/icons.png' ) -$x -$y\"></span>";	
+        echo "<span$class style=\"display:inline-block; width:$w; height:$h; background:url( '../img/icons.png' ) -$x -$y\"></span>";	
     }
 }
 
