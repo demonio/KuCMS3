@@ -2,14 +2,14 @@
 
 /** 
  */
-class AdminController extends AppController 
+class AdminController extends Controller 
 {
 	protected function initialize()
 	{
 		if ( empty( $_SESSION['role'] ) ) View::select( '', 'login' );
 		else if ( $_SESSION['role'] == 'admin' ) View::template( 'shell' );
 		
-		parent::initialize();
+		#parent::initialize();
 	}
 	
 	public function login()

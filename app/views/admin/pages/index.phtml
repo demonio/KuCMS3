@@ -1,0 +1,67 @@
+<?php
+$weight_selected = empty( $_POST['weight'] ) ? empty( $page->level1 ) ? '0.0.0' : "$page->level1.$page->level2.$page->level3" : $_POST['weight'];
+$link_selected = empty( $_POST['link'] ) ? empty( $page->link ) ? '' : $page->link : $_POST['link'];
+$slug_selected = empty( $_POST['slug'] ) ? empty( $page->slug ) ? '' : $page->slug : $_POST['slug'];
+$title_selected = empty( $_POST['title'] ) ? empty( $page->title ) ? '' : $page->title : $_POST['title'];
+$subtitle_selected = empty( $_POST['subtitle'] ) ? empty( $page->subtitle ) ? '' : $page->subtitle : $_POST['subtitle'];
+$content_selected = empty( $_POST['content'] ) ? empty( $page->content ) ? '' : $page->content : $_POST['content'];
+$area_selected = empty( $_POST['areas_id'] ) ? empty( $page->areas_id ) ? '' : $page->areas_id : $_POST['areas_id'];
+$role_selected = empty( $_POST['roles_id'] ) ? empty( $page->roles_id ) ? '' : $page->roles_id : $_POST['roles_id'];
+?>
+<form action="/pages/create" method="post">
+	<p class="span1">
+		<label>Weight:</label>
+		<input name="weight" value="<?php echo $weight_selected; ?>" />
+	</p>
+	<p class="span3">
+		<label>Link name:</label>
+		<input name="link" value="<?php echo $link_selected; ?>" />
+	</p>
+	<p class="span5">
+		<label>Link url-format-slug: ( updated if there )</label>
+		<input name="slug" value="<?php echo $slug_selected; ?>" />
+	</p>
+	<p class="span6">
+		<label>Title:</label>
+		<input name="title" value="<?php echo $title_selected; ?>" />
+	</p>
+	<p class="span7">
+		<label>Subtitle:</label>
+		<input name="subtitle" value="<?php echo $subtitle_selected; ?>" />
+	</p>
+	<p class="span8">
+		<label>Content:</label>
+		<textarea class="ckeditor" name="content"><?php echo $content_selected; ?></textarea>
+	</p>
+	<p class="span3">
+		<label>Area:</label>
+		<select name="areas_id">
+			<?php
+			foreach ( $areas as $area )
+			{
+				?>
+				<option<?php _::esel( $area->id, $area_selected ); ?> value="<?php echo $area->id; ?>"><?php echo $area->area; ?></option>
+				<?php
+			}
+			?>
+		</select>
+	</p>
+	<p class="span3">
+		<label>Role:</label>
+		<select name="roles_id">
+			<?php
+			foreach ( $roles as $role )
+			{
+				?>
+				<option<?php _::esel( $role->id, $role_selected ); ?> value="<?php echo $role->id; ?>"><?php echo $role->role; ?></option>
+				<?php
+			}
+			?>
+		</select>
+	</p>
+	<p class="navbar-fixed-bottom">
+		<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Save</button>
+	</p>
+</form>
+<?php
+View::partial( 'ckeditor' );

@@ -4,7 +4,7 @@
  */
 class ContentsController extends AppController 
 {
-	public function index( $slug )
+	public function index( $slug='' )
 	{
 		$page = $this->page = Load::model( 'pages' )->find_first( "conditions: slug='$slug' AND deleted=0" );
 		if ( ! $page )

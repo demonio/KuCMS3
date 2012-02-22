@@ -9,6 +9,7 @@ class _
 	 */
 	static public function go( $url )
 	{
+		$url = PUBLIC_PATH . ltrim( $url, '/' );
 		exit( "<script>location='$url'</script>" );
 	}
 	
