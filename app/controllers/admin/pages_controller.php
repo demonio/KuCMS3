@@ -11,7 +11,6 @@ class PagesController extends AdminController
 			$this->page = Load::model( 'pages' )->noDeleted( $page );
 		}
 		$this->hooks = Load::model( 'hooks' )->noDeleted();
-		$this->roles = Load::model( 'roles' )->noDeleted();
 	}
 	
 	public function create()
@@ -19,14 +18,14 @@ class PagesController extends AdminController
 		if ( $_POST )
 		{
 			$page = Load::model( 'pages' )->saveIt( $_POST );
-			_::go( "/pages/index/$page->id" );		
+			_::go( "admin/pages/index/$page->id" );		
 		}
-		_::go( '/pages' );		
+		_::go( 'admin/pages' );		
 	}	
 	
 	public function delete( $page )
 	{
 		Load::model( 'pages' )->deleteIt( $page );
-		_::go( '/pages' );		
+		_::go( 'admin/pages' );		
 	}	
 }

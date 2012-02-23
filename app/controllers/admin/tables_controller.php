@@ -11,6 +11,6 @@ class TablesController extends DbadminController
 	public function change( $table )
 	{
 		$_SESSION['model'] = $table;
-		_::go( '/tables' );
+		_::go( 'admin/tables' );
 	}
 }

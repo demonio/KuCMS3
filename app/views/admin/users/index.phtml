@@ -1,0 +1,21 @@
+<?php
+$user_selected = empty( $_POST['user'] ) ? empty( $user->user ) ? '' : $user->user : $_POST['user'];
+$role_selected = empty( $_POST['role'] ) ? empty( $user->role ) ? '' : $user->role : $_POST['role'];
+?>
+<form action="admin/users/create" method="post">
+	<p class="span4">
+		<label>User: <em>( must be unique otherwise overwrites )</em></label>
+		<input name="user" value="<?php echo $user_selected; ?>" type="text" />
+	</p>
+	<p class="span4">
+		<label>Pass:</label>
+		<input name="pass" type="password" />
+	</p>
+	<p class="span4">
+		<label>Role:</label>
+		<input name="role" value="<?php echo $role_selected; ?>" type="text" />
+	</p>
+	<p class="navbar-fixed-bottom">
+		<button class="btn btn-success" type="submit"><i class="icon-ok icon-white"></i> Save</button>
+	</p>
+</form>

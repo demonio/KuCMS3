@@ -21,9 +21,9 @@
 								?>
 								<li>
 									<?php echo "$page->level1.$page->level2.$page->level3"; ?>
-									<a href="pages/index/<?php echo $page->id; ?>"><?php echo $page->link; ?></a>
-									<a href="<?php echo PUBLIC_PATH . $page->slug; ?>" title="view <?php echo $page->slug; ?>?" target="_blank"><?php echo _img::eicon( 7, 10, 'view' ); ?></a>
-									<a href="pages/delete/<?php echo $page->id; ?>" onclick="if ( ! confirm( 'Sure?' ) ) return false" title="delete <?php echo $page->slug; ?>?"><?php echo _img::eicon( 1, 11, 'delete' ); ?></a>
+									<a href="admin/pages/index/<?php echo $page->id; ?>"><?php echo $page->link; ?></a>
+									<a href="/<?php echo $page->slug; ?>" title="view <?php echo $page->slug; ?>?" target="_blank"><?php echo _img::eicon( 7, 10, 'view' ); ?></a>
+									<a href="admin/pages/delete/<?php echo $page->id; ?>" onclick="if ( ! confirm( 'Sure?' ) ) return false" title="delete <?php echo $page->slug; ?>?"><?php echo _img::eicon( 1, 11, 'delete' ); ?></a>
 
 								</li>
 								<?php

@@ -17,7 +17,6 @@ class Users extends ActiveRecord
 	public function login( $post )
 	{
 		$user = $this->enter( $post['user'], $post['pass'] );
-		
 		if ( $user )
 		{
 			$_SESSION['role'] = $user->role;
@@ -31,19 +30,22 @@ class Users extends ActiveRecord
 	{
 		$_SESSION = array();
 		$_SESSION['flash'][] = Flash::valid( "See you!" );
-	}
+	}	
 	
-	/*
-	 * SOLO PARA INSTALAR EL CMS, DESPUES DEBE BORRARSE EL INSTALLER CONTROLLER
-	 */
-	public function createAdmin()
+	public function saveIt( $post )
 	{
-		$this->delete( "user='admin'" );
-		$this->user = 'admin'; 
-		$this->pass = md5( 'nimda' . $this->salt );
-		$this->role = 'admin'; 
-		$this->deleted = '0';
-		$this->create();
-		$_SESSION['flash'][] = Flash::valid( "User admin with pass nimda created!" );
+		$post['deleted'] = '0';
+		$post['pass'] = md5( $post['pass'] . $this->salt );
+		if ( $this->check( 'user', $post['user'] ) )
+		{
+			$this->update( $post );
+			$_SESSION['flash'][] = Flash::warning( 'Item updated!' );
+		}
+		else
+		{
+			$this->create( $post );
+			$_SESSION['flash'][] = Flash::warning( 'Item created!' );			
+		}
+		return $this;
 	}
 }

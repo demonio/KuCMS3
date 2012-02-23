@@ -7,7 +7,7 @@ $subtitle_selected = empty( $_POST['subtitle'] ) ? empty( $page->subtitle ) ? ''
 $content_selected = empty( $_POST['content'] ) ? empty( $page->content ) ? '' : $page->content : $_POST['content'];
 $hook_selected = empty( $_POST['hooks_id'] ) ? empty( $page->hooks_id ) ? '' : $page->hooks_id : $_POST['hooks_id'];
 ?>
-<form action="pages/create" method="post">
+<form action="admin/pages/create" method="post">
     <div class="tabbable">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#1" data-toggle="tab">Titles</a></li>

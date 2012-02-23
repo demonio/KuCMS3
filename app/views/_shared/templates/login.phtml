@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <base href="<?php echo PUBLIC_PATH; ?>admin/" /> 
+        <base href="<?php echo PUBLIC_PATH; ?>" /> 
         <meta charset="<?php echo APP_CHARSET ?>" />
         <title>Login</title>
         <?php Tag::css( 'reset' ) ?>
@@ -12,7 +12,7 @@
     </head>
     <body>
         <?php View::partial( 'flash' ); ?>
-        <form action="pages/login" class="box login" method="post">
+        <form action="admin/pages/login" class="box login" method="post">
             <fieldset class="boxBody">
                 <label>Username</label>
                 <input name="user" type="text" tabindex="1" placeholder="GEN6 member" required />

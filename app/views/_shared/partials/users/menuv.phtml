@@ -1,0 +1,15 @@
+
+<ul>
+	<?php
+	foreach ( $users as $user )
+	{
+		?>
+		<li>
+			<a href="admin/users/index/<?php echo $user->id; ?>"><?php echo "$user->user ( $user->role )"; ?></a>
+			<a href="admin/users/delete/<?php echo $user->id; ?>" onclick="if ( ! confirm( 'Sure?' ) ) return false" title="delete <?php echo "$user->user ( $user->role )"; ?>?"><?php echo _img::eicon( 1, 11, 'delete' ); ?></a>
+
+		</li>
+		<?php
+	}
+	?>
+</ul>

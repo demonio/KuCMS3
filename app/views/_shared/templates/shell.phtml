@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <base href="<?php echo PUBLIC_PATH; ?>admin/" /> 
+        <base href="<?php echo PUBLIC_PATH; ?>" /> 
         <meta charset="<?php echo APP_CHARSET ?>" />
         <title>Shell</title>
         <?php Tag::css( 'reset' ) ?>
@@ -15,10 +15,10 @@
     <body>
         <div class="container-fluid">
             <?php View::partial( 'flash' ); ?>
-            <?php View::partial( 'pages/menuh', false, get_object_vars( $controller ) ); ?>
+            <?php View::partial( 'shell/menuh', false, get_object_vars( $controller ) ); ?>
             <div id="content" class="row">
                 <div class="span4" id="menuv">
-                    <?php View::partial( 'pages/menuv', false, get_object_vars( $controller ) ); ?>
+                    <?php View::partial( "$controller_name/menuv", false, get_object_vars( $controller ) ); ?>
                 </div>
                 <div class="span8">
                     <?php View::content(); ?>

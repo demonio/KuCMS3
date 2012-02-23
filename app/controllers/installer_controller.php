@@ -1,12 +1,8 @@
 <?php
 
 /**
+ * De momento toca instalar el kucms3.sql
  */
 class InstallerController extends AppController 
 {
-	public function admin()
-	{
-		Load::model( 'users' )->createAdmin();
-		View::select( '', 'login' );
-	}
 }
