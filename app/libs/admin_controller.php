@@ -8,8 +8,6 @@ class AdminController extends Controller
 	{
 		if ( empty( $_SESSION['role'] ) ) View::select( '', 'login' );
 		else if ( $_SESSION['role'] == 'admin' ) View::template( 'shell' );
-		
-		#parent::initialize();
 	}
 	
 	public function login()

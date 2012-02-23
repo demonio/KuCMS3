@@ -1,20 +1,17 @@
 
 #content { margin:50px 0; }
-
 #content p { display:inline-block; }
 #content p.all-width { width:100%; }
-
 #content input,
 #content label,
 #content select { width:100%; }
 
-#content ul { list-style:none; }
-#content ul ul { list-style:square; }
-#content ul ul ul { list-style:none; }
-#content li { border-top:1px dashed #999; }
-
-#content span.delete { float:right; margin:5px 0 0; }
-#content span.view { float:right; margin:5px 0 0 5px; }
+#menuv ul { list-style:none; }
+#menuv ul ul { list-style:square; }
+#menuv ul ul ul { list-style:none; }
+#menuv li { border-top:1px dashed #999; }
+#menuv span.delete { float:right; margin:5px 0 0; }
+#menuv span.view { float:right; margin:5px 0 0 5px; }
 
 .navbar-fixed-bottom
 {
