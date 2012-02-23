@@ -1,6 +1,18 @@
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP TABLE IF EXISTS `hooks`;
+
+CREATE TABLE `hooks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hook` varchar(69) NOT NULL,
+  `templates_id` int(11) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+insert into `hooks` values('1','Menu vertical','1','0');
+
 DROP TABLE IF EXISTS `pages`;
 
 CREATE TABLE `pages` (
@@ -14,27 +26,14 @@ CREATE TABLE `pages` (
   `subtitle` varchar(69) DEFAULT NULL,
   `content` text,
   `hooks_id` int(11) DEFAULT NULL,
-  `roles_id` int(11) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-insert into `pages` values('1','1','0','0','Inicio',null,'Inicio','Inicio','Inicio','1',null,'1'),
- ('2','1','0','0','Inicio','inicio','Inicio','Inicio','<p>\r\n	Inicio</p>\r\n','1',null,'1'),
- ('3','1','0','0','Inicio','inicio','Inicio','Inicio','<p>\r\n	Inicio</p>\r\n','1',null,'0');
-
-DROP TABLE IF EXISTS `roles`;
-
-CREATE TABLE `roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `role` varchar(69) NOT NULL,
-  `deleted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-insert into `roles` values('1','User','0'),
- ('2','Member','0'),
- ('3','Admin','0');
+insert into `pages` values('1','1','0','0','Inicio',null,'Inicio','Inicio','Inicio','1','1'),
+ ('2','1','0','0','Inicio','inicio','Inicio','Inicio','<p>\r\n	Inicio</p>\r\n','1','1'),
+ ('3','1','0','0','Inicio','inicio','Inicio','Inicio','<p>\r\n	Inicio</p>\r\n','1','1'),
+ ('4','1','0','0','Home','home','Inicio','Inicio','<p>\r\n	Inicio</p>\r\n','1','0');
 
 DROP TABLE IF EXISTS `templates`;
 
@@ -59,17 +58,5 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 insert into `users` values('6','admin','28b076a18c3c11ea8998391835c3c55d','admin','0');
-
-DROP TABLE IF EXISTS `hooks`;
-
-CREATE TABLE `hooks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hook` varchar(69) NOT NULL,
-  `templates_id` int(11) NOT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
-insert into `hooks` values('1','Menu vertical','1','0');
 
 SET FOREIGN_KEY_CHECKS = 1;
